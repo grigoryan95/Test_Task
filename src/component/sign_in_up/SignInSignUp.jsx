@@ -14,7 +14,6 @@ export default function SignInSignUp({name, link, handleSubmit}) {
     return (
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
-                <h1>test</h1>
                 <Box
                     sx={{
                         marginTop: 8,
