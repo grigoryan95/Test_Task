@@ -1,14 +1,14 @@
-import SignInSignUp from "./component/sign_in_up/SignInSignUp";
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+import { Route, Switch } from "react-router-dom";
+import { HomePage, LoginPage, RegisterPage } from "./pages";
 
 function App() {
-    const theme = createTheme();
-
 
     return (
-        <ThemeProvider theme={theme}>
-            <SignInSignUp name="Sign in"/>
-        </ThemeProvider>
+        <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/register" component={RegisterPage} />
+        </Switch>
     );
 }
 

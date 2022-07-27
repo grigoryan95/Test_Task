@@ -6,16 +6,10 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import {Link} from 'react-router-dom'
 
-export default function SignInSignUp({name}) {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+export default function SignInSignUp({name, link, handleSubmit}) {
+
 
     return (
             <Container component="main" maxWidth="xs">
@@ -29,16 +23,17 @@ export default function SignInSignUp({name}) {
                     }}
                 >
                     <Avatar
-                        sx={{ m: 1, bgcolor: 'secondary.main' }}
+                        sx={{ m: 1, backgroundColor: 'secondary.main' }}
                         children={<LockOutlinedIcon />}
                     />
                     <Typography component="h1" variant="h5" children={name} />
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={(event) => handleSubmit(event)} noValidate sx={{ mt: 1 }}>
                         <TextField
                             required
                             fullWidth
                             autoFocus
                             id="email"
+                            type="email"
                             name="email"
                             margin="normal"
                             label="Email Address"
@@ -61,6 +56,9 @@ export default function SignInSignUp({name}) {
                             sx={{ mt: 3, mb: 2 }}
                             children={name}
                         />
+                        <Link to={`/${link}`}>
+                            {link}
+                        </Link>
                     </Box>
                 </Box>
             </Container>
