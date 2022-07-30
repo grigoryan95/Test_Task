@@ -1,5 +1,5 @@
-import { Route, Switch } from "react-router-dom";
-import { HomePage, LoginPage, RegisterPage } from "./pages";
+import { Route, Switch } from 'react-router-dom';
+import { HomePage, LoginPage, RegisterPage } from './pages';
 
 function App() {
 

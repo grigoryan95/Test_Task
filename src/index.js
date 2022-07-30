@@ -1,11 +1,12 @@
+import './firebase';
 import './index.css';
 import App from './App';
+import { store } from './store';
+import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Provider} from "react-redux";
-import {store} from "./store";
-import './firebase';
 
 const theme = createTheme();
 
@@ -14,7 +15,9 @@ root.render(
     <ThemeProvider theme={theme}>
         <BrowserRouter>
             <Provider store={store}>
-                <App />
+                <CssBaseline>
+                    <App />
+                </CssBaseline>
             </Provider>
         </BrowserRouter>
     </ThemeProvider>

@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     id: null,
@@ -16,6 +16,7 @@ const userSlice = createSlice({
             state.token = action.payload.token;
         },
         removeUser(state) {
+            localStorage.removeItem('token')
             state.id = null;
             state.email = null;
             state.token = null;
