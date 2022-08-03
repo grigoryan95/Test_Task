@@ -10,14 +10,8 @@ export const RegisterPage = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
-        event.preventDefault();
         const auth = getAuth();
-        const data = new FormData(event.currentTarget);
-        const obj = {
-            email: data.get('email'),
-            password: data.get('password'),
-        }
-        createUserWithEmailAndPassword(auth, obj.email, obj.password)
+        createUserWithEmailAndPassword(auth, event.email, event.password)
             .then(({user}) => {
                 dispatch(setUser({
                     id: user.uid,
@@ -35,7 +29,7 @@ export const RegisterPage = () => {
             <SignInSignUp
                 link="login"
                 name="Sign Up"
-                handleSubmit={handleSubmit}/>
+                handleSubmitOut={handleSubmit}/>
         </>
     );
 };

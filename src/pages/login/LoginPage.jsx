@@ -10,14 +10,8 @@ export const LoginPage = () => {
     const {push} = useHistory();
 
     const handleSubmit = (event) => {
-        event.preventDefault();
         const auth = getAuth();
-        const data = new FormData(event.currentTarget);
-        const obj = {
-            email: data.get('email'),
-            password: data.get('password'),
-        };
-        signInWithEmailAndPassword(auth, obj.email, obj.password)
+        signInWithEmailAndPassword(auth, event.email, event.password)
             .then(({user}) => {
                 dispatch(setUser({
                     id: user.uid,
@@ -37,7 +31,7 @@ export const LoginPage = () => {
                 login="login"
                 name="Sign In"
                 link="register"
-                handleSubmit={handleSubmit}
+                handleSubmitOut={handleSubmit}
             />
         </>
     );
